@@ -26,17 +26,20 @@ const MapView = ({ onBack, reports }: MapViewProps) => {
       <header className="bg-background border-b sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm" onClick={onBack}>
-                <ArrowLeft className="w-4 h-4" />
-              </Button>
-              <h1 className="text-xl font-bold text-foreground">Neighborhood Map</h1>
+            <Button variant="ghost" onClick={onBack} className="p-2">
+              <ArrowLeft className="w-5 h-5" />
+            </Button>
+            <div className="flex items-center space-x-2">
+              <span className="text-lg">🌍</span>
+              <h1 className="text-xl font-bold text-foreground">Your Neighborhood</h1>
             </div>
-            <Button variant="outline" size="sm">
-              <Filter className="w-4 h-4 mr-2" />
-              Filter
+            <Button className="bg-civic-blue hover:bg-civic-blue/90 text-white" size="sm">
+              Register Complaint
             </Button>
           </div>
+          <p className="text-center text-muted-foreground text-sm mt-2">
+            Help us improve your neighborhood in under 30 seconds.
+          </p>
         </div>
       </header>
 

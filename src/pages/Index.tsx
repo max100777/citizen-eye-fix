@@ -52,52 +52,42 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-subtle">
-      {/* Header */}
-      <header className="bg-background/95 backdrop-blur-sm border-b sticky top-0 z-50">
+    <div className="min-h-screen bg-background">
+      {/* Simplified Header - Logo Only */}
+      <header className="bg-background border-b">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-civic rounded-lg flex items-center justify-center">
-                <MapPin className="w-5 h-5 text-white" />
+          <div className="flex items-center justify-center">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-civic-blue rounded-xl flex items-center justify-center">
+                <span className="text-2xl">🏛️</span>
               </div>
-              <h1 className="text-xl font-bold text-foreground">CIVIX</h1>
+              <h1 className="text-2xl font-bold text-foreground">Your Neighborhood</h1>
             </div>
-            <nav className="hidden md:flex space-x-6">
-              <Button variant="ghost" onClick={() => setActiveView('home')}>Home</Button>
-              <Button variant="ghost" onClick={() => setActiveView('map')}>Map View</Button>
-              <Button variant="ghost" onClick={() => setActiveView('report')}>Report Issue</Button>
-            </nav>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <section className="py-16 px-4">
         <div className="container mx-auto text-center">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Empower Your Community
+          <div className="max-w-2xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Help us improve your neighborhood in under 30 seconds.
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-              Report local issues, track progress, and help build a better neighborhood together.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <Button 
                 size="lg" 
-                className="bg-gradient-civic hover:opacity-90 transition-fast shadow-civic"
+                className="bg-civic-blue hover:bg-civic-blue/90 text-white transition-fast shadow-civic"
                 onClick={() => setActiveView('report')}
               >
-                <Camera className="w-5 h-5 mr-2" />
-                Report an Issue
+                📷 Report an Issue
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
                 onClick={() => setActiveView('map')}
               >
-                <MapPin className="w-5 h-5 mr-2" />
-                View Neighborhood Map
+                🗺️ View Map
               </Button>
             </div>
           </div>
@@ -105,28 +95,35 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 bg-background">
+      <section className="py-12 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <Card className="text-center shadow-card transition-civic hover:shadow-elevated">
-              <CardContent className="p-6">
-                <Users className="w-12 h-12 mx-auto text-primary mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">2,847</h3>
-                <p className="text-muted-foreground">Active Community Members</p>
+              <CardContent className="p-4">
+                <div className="text-3xl mb-2">👥</div>
+                <h3 className="text-xl font-bold text-foreground mb-1">2,847</h3>
+                <p className="text-muted-foreground text-sm">Community Members</p>
               </CardContent>
             </Card>
             <Card className="text-center shadow-card transition-civic hover:shadow-elevated">
-              <CardContent className="p-6">
-                <CheckCircle className="w-12 h-12 mx-auto text-success mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">1,523</h3>
-                <p className="text-muted-foreground">Issues Resolved</p>
+              <CardContent className="p-4">
+                <div className="text-3xl mb-2">✅</div>
+                <h3 className="text-xl font-bold text-foreground mb-1">1,523</h3>
+                <p className="text-muted-foreground text-sm">Issues Resolved</p>
               </CardContent>
             </Card>
             <Card className="text-center shadow-card transition-civic hover:shadow-elevated">
-              <CardContent className="p-6">
-                <Clock className="w-12 h-12 mx-auto text-warning mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">2.3 days</h3>
-                <p className="text-muted-foreground">Avg Response Time</p>
+              <CardContent className="p-4">
+                <div className="text-3xl mb-2">⏱️</div>
+                <h3 className="text-xl font-bold text-foreground mb-1">2.3 days</h3>
+                <p className="text-muted-foreground text-sm">Avg Response Time</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center shadow-card transition-civic hover:shadow-elevated">
+              <CardContent className="p-4">
+                <div className="text-3xl mb-2">📍</div>
+                <h3 className="text-xl font-bold text-foreground mb-1">12</h3>
+                <p className="text-muted-foreground text-sm">Active Areas</p>
               </CardContent>
             </Card>
           </div>
@@ -175,11 +172,11 @@ const Index = () => {
           </Button>
           <Button 
             variant="ghost" 
-            className="h-16 rounded-none bg-gradient-civic text-white"
+            className="h-16 rounded-none bg-civic-blue text-white"
             onClick={() => setActiveView('report')}
           >
             <div className="flex flex-col items-center">
-              <Camera className="w-5 h-5 mb-1" />
+              <span className="text-lg mb-1">📷</span>
               <span className="text-xs">Report</span>
             </div>
           </Button>

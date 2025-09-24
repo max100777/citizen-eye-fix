@@ -14,14 +14,13 @@ interface ReportFormProps {
 }
 
 const categories = [
-  "Road Issues",
-  "Streetlights",
-  "Sanitation",
-  "Public Safety",
-  "Parks & Recreation",
-  "Water & Utilities",
-  "Noise Complaints",
-  "Other"
+  { value: "Pothole", label: "🕳️ Pothole", icon: "🕳️" },
+  { value: "Street Light", label: "💡 Street Light", icon: "💡" },
+  { value: "Garbage/Waste", label: "🗑️ Garbage/Waste", icon: "🗑️" },
+  { value: "Electrical Issue", label: "⚡ Electrical Issue", icon: "⚡" },
+  { value: "Water/Sewer", label: "💧 Water/Sewer", icon: "💧" },
+  { value: "Traffic Signs", label: "🚦 Traffic Signs", icon: "🚦" },
+  { value: "Sidewalk", label: "🚶 Sidewalk", icon: "🚶" }
 ];
 
 const ReportForm = ({ onBack, onSubmit }: ReportFormProps) => {
@@ -70,16 +69,23 @@ const ReportForm = ({ onBack, onSubmit }: ReportFormProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-subtle">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-background/95 backdrop-blur-sm border-b sticky top-0 z-50">
+      <header className="bg-background border-b sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" onClick={onBack}>
-              <ArrowLeft className="w-4 h-4" />
+          <div className="flex items-center justify-between">
+            <Button variant="ghost" onClick={onBack} className="p-2">
+              <ArrowLeft className="w-5 h-5" />
             </Button>
-            <h1 className="text-xl font-bold text-foreground">Report an Issue</h1>
+            <div className="flex items-center space-x-2">
+              <span className="text-lg">📝</span>
+              <h1 className="text-xl font-bold text-foreground">Report an Issue</h1>
+            </div>
+            <div className="w-9"></div>
           </div>
+          <p className="text-center text-muted-foreground text-sm mt-2">
+            Help us improve your neighborhood in under 30 seconds.
+          </p>
         </div>
       </header>
 
@@ -107,8 +113,8 @@ const ReportForm = ({ onBack, onSubmit }: ReportFormProps) => {
                     </SelectTrigger>
                     <SelectContent>
                       {categories.map((category) => (
-                        <SelectItem key={category} value={category}>
-                          {category}
+                        <SelectItem key={category.value} value={category.value}>
+                          {category.label}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -220,7 +226,7 @@ const ReportForm = ({ onBack, onSubmit }: ReportFormProps) => {
                 {/* Submit Button */}
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-civic hover:opacity-90 transition-fast shadow-civic"
+                  className="w-full bg-civic-blue hover:bg-civic-blue/90 text-white transition-fast shadow-civic"
                   size="lg"
                 >
                   Register Complaint
